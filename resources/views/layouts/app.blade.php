@@ -6,6 +6,13 @@
 
         <title>CELUWEB.COM - @yield('titulo')</title>
         @vite('resources/css/app.css')
+        
+
+        <link href="{{ asset('helpers/v2/main.css?v=1') }}" rel="stylesheet" type="text/css">
+        <script src="{{ asset('js/daypilot-all.min.js?v=1') }}"></script>
+        <link href="{{ asset('helpers/v2/app.js?v=1') }}" rel="stylesheet" type="text/css">
+
+
 
     </head>
     <body class="bg-slate-400">
@@ -44,6 +51,12 @@
 
         </main>
 
+        <br><br>
+        <div class="container" width="100vw">
+
+            <div id="dp"></div>
+        </div>
+
         <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
             CELUWEB.COM ALL RIGHTS RESERVED
             {{now()->year}}
@@ -52,3 +65,49 @@
 
     
 </html>
+
+
+<script type="text/javascript">
+
+const dp = new DayPilot.Calendar("dp", {
+    startDate: DayPilot.Date.today(),
+    days: 7,
+    columnWidthSpec: "Fixed",
+    columnWidth: 100,
+    onTimeRangeSelected: async args => {
+        const modal = await DayPilot.Modal.prompt("Nuevo Evento:", "");
+        if (modal.canceled) {
+            return;
+        }
+        dp.events.add({
+            start: args.start,
+            end: args.end,
+            id: DayPilot.guid(),
+            resource: args.resource,
+            text: modal.result
+        });
+        dp.clearSelection();
+        dp.message("Creado");
+    },
+    onEventClick: async args => {
+        const modal = await DayPilot.Modal.prompt("Modificar Evento:", args.e.data.text);
+        if (modal.canceled) {
+            return;
+        }
+        args.e.data.text = modal.result;
+        dp.events.update(args.e);
+        dp.message("Actualizado");
+    },
+    onEventDelete: async args => {
+        if (confirm("¿Estás seguro de que quieres eliminar este evento?")) {
+            dp.events.remove(args.e.data);
+            dp.message("Eliminado");
+        }
+    }
+});
+
+dp.init();
+</script>
+
+
+

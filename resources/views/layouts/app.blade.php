@@ -9,14 +9,12 @@
 
     </head>
     <body class="bg-slate-400">
-        <!-- <h1 class="text-4xl font-extrabold">@yield('titulo')</h1>        
-        <hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700"> -->
 
-        <header class="p-3 border-b bg-white shadow">
-            <div class="border-8 container mx-auto flex justify-between items-center">
-                <h1 class="text-3xl font-black">
-                    Calendario CELUWEB.COM
-                </h1>
+        <header class="p-2 border-b bg-white shadow">
+            <div class="border-4 container mx-auto flex justify-between items-center">
+                <div class="md:w-20">
+                    <img src="{{asset('img/logo_empresarial.png')}}" alt="LOGO">
+                </div>
 
                 @auth
                     <nav class="p-2 flex gap-3">
@@ -36,7 +34,7 @@
             </div>
         </header>
 
-        <main class="container mx-auto mt-10 border-8">
+        <main class="container mx-auto mt-4 border-8">
             <h2 class="font-black text-center text-2xl mb-6">
                 @yield('titulo')
             </h2>

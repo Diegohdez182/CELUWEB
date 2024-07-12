@@ -8,6 +8,10 @@
 
     <div class="md:flex md:justify-center">
         
+        <div class="md:w-2/12">
+            <img src="{{asset('img/cw.png')}}" alt="logo_log">
+        </div>
+
         <div class="md:w-4/12 bg-white pd-6 rounded-lg shadow-xl">
             <form method="POST" action="{{route('login')}}">
             

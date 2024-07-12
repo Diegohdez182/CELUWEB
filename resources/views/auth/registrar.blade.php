@@ -7,9 +7,6 @@
 @section('contenido')
 
     <div class="md:flex md:justify-center">
-        <div class="md:w-4/12">
-            <p>imagen aqui</p>
-        </div>
         <div class="md:w-4/12 bg-white pd-6 rounded-lg shadow-xl">
             <form action="{{route('register')}}" method="POST">
             @csrf

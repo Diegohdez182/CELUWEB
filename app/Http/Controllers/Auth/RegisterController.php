@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Mail\YoutubeMail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -46,6 +48,9 @@ class RegisterController extends Controller
 
         #Otra forma de hacer autenticaciones de usuario
         //auth()->attempt($request->only('email,password'));
+        
+        Mail::to('elon@tesla.com')
+        ->send(new YoutubeMail());
 
         //Redireccionar a una pagina despues de realizar el registro
         return redirect()->route('post.index');

@@ -6,9 +6,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogAuthController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Middleware\RedirectIfNotAuthenticated;
+use App\Mail\YoutubeMail;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
-    return view('principal');
+    
+    return view('auth.login');
 });
 
 #Definicion de rutas siguiendo el esquema de diseño de software MVC

@@ -49,7 +49,7 @@ class RegisterController extends Controller
         #Otra forma de hacer autenticaciones de usuario
         //auth()->attempt($request->only('email,password'));
         
-        Mail::to('elon@tesla.com')
+        Mail::to(auth()->user()->email)
         ->send(new YoutubeMail());
 
         //Redireccionar a una pagina despues de realizar el registro

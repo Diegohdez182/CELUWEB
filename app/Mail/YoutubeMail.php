@@ -27,7 +27,7 @@ class YoutubeMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Youtube Mail',
+            subject: 'Celuweb.com - Reclutamiento',
         );
     }
 

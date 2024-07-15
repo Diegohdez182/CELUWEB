@@ -46,6 +46,8 @@
             CELUWEB.COM ALL RIGHTS RESERVED
             {{now()->year}}
         </footer>
+
+        @stack('scripts');
     </body>
 
     

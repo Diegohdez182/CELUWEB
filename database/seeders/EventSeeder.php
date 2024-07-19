@@ -24,6 +24,11 @@ class EventSeeder extends Seeder
                 'start_date'=>'2024-07-20 8:00',
                 'end_date'=>'2024-07-25 22:00',
             ],
+            [
+                'event'=>'dia laboral presencial',
+                'start_date'=>'2024-07-20 8:00',
+                'end_date'=>'2024-07-25 22:00',
+            ],
         ];
         foreach($events as $event)
         {

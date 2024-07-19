@@ -9,18 +9,26 @@ class CalendarController extends Controller
 {
     public function index()
     {
-        $allEvents=Event::all();
-        $eventos=[];
-        foreach($allEvents as $event)
+        $all_events=Event::all();
+        $events=[];
+        foreach($all_events as $event)
         {
-            $eventos[]=[
+            $events[]=[
                 'title'=>$event->event,
                 'start'=>$event->start_date,
                 'end'=>$event->end_date,                
             ]; 
         }
-
-        return view("dashboard", compact('eventos'));
+        return view("dashboard", compact('events'));
+    }
+/*
+    public function store(Request $request){
+        Event::create([
+            'event'=>$request->event,
+            'start_time'=>$request->start_date,
+            'end_time'=>$request->start_date,
+        ]);
 
     }
+*/
 }

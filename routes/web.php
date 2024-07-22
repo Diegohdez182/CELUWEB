@@ -20,16 +20,19 @@ Route::get('/', function () {
 
 #Definicion de rutas siguiendo el esquema de diseño de software MVC
 
-//Rutas para el registro
+#Rutas para el registro
 Route::get('/register',[RegisterController::class, 'index'])->name('register');
 Route::post('/register',[RegisterController::class, 'store']);
 
-//Rutas para el login y logout
+#Rutas para el login y logout
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'store']);
 Route::get('/logout',[LogAuthController::class, 'index'])->name('logout');
 
-//Ruta de la pagina principal del aplicativo
-Route::get('/dashboard/wall', [PostController::class, 'index'])->name('post.index')->middleware(RedirectIfNotAuthenticated::class);
-Route::get('/dashboard/wall', [CalendarController::class, 'index']);
+#Ruta de la pagina principal del aplicativo
+Route::get('/celuwebCalendar', [PostController::class, 'index'])->name('post.index')->middleware(RedirectIfNotAuthenticated::class);
+
+#Ruta para visualizacion del calendario
+Route::get('/celuCalendar', [CalendarController::class, 'index']);
+//Route::post('/celuCalendar', [CalendarController::class, 'store']);
 

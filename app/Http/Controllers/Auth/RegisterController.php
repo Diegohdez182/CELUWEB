@@ -7,12 +7,17 @@ use App\Mail\YoutubeMail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
     //
     public function index () {
+        if(Auth::check()){
+            return redirect()->route('post.index');
+        }
+
         return view('auth.registrar');
     }
 

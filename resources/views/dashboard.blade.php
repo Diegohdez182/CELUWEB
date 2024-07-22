@@ -1,9 +1,6 @@
 
 @extends('layouts.app')
 
-@section('titulo')
-
-@endsection
 
 @section('contenido')
     
@@ -18,8 +15,17 @@
         document.addEventListener('DOMContentLoaded', function() {
           const calendarEl = document.getElementById('calendar');
           const calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            events: @json($events)
+            //initialView: 'dayGridMonth',
+            headerToolbar: {
+              left: 'dayGridMonth,timeGridWeek,timeGridDay',
+              center: 'title',
+              right: 'prev,next today',
+            },
+          
+
+            dateClick: function (info){
+              window.open("https://www.google.com.co"); 
+            },
 
           });
           calendar.render();
